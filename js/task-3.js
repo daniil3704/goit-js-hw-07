@@ -1,25 +1,11 @@
-const profile = {
-    username: "Jacob",
-  playTime: 300,
+const nameInput = document.getElementById("name-input");
+const nameOutput = document.getElementById("name-output");
 
-  changeUsername(newName){
-     this.username = newName
-  },
-  updatePlayTime(hours){
-    this.playTime += hours
-  },
-  getInfo(){
-    return `${this.username} has ${this.playTime} active hours!`
-  }
-  
-};
-
-
-
-console.log(profile.getInfo()); // "Jacob has 300 active hours!"
-
-profile.changeUsername("Marco");
-console.log(profile.getInfo()); // "Marco has 300 active hours!"
-
-profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
+nameInput.addEventListener("input", (event) => {
+    const inputValue = event.currentTarget.value.trim();
+    if (inputValue === '') {
+        nameOutput.textContent = "Anonymous";
+    } else {
+        nameOutput.textContent = inputValue;
+    }
+});
